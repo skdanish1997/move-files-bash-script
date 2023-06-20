@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Set the source and destination directories
+source_dir="/home/azureuser"
+destination_dir="/home/azureuser/Bkp"
+
+# Check if the destination directory exists, create it if necessary
+if [ ! -d "$destination_dir" ]; then
+  mkdir -p "$destination_dir"
+fi
+
+# Move all files with .pdf extension to the destination directory
+find "$source_dir" -type f -iname "*.bkp" -exec mv {} "$destination_dir" \;
+
+# Display a message indicating the operation is complete
+echo "BKP files moved to the Bkp folder."
+
